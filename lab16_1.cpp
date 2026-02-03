@@ -32,3 +32,41 @@ int main(){
 	findColSum(dPtr,sum2,N,M); 
 	showData(sum2,1,M);
 }
+
+void randData(double *dPtr, int N, int M) {
+    for (int i = 0; i < N * M; i++) {
+        // Random value between 0.00 and 1.00
+        dPtr[i] = (rand() % 101) / 100.0;
+    }
+}
+
+void showData(double *dPtr, int N, int M) {
+    cout << fixed << setprecision(2);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            // Accessing the 2D array using pointer arithmetic
+            cout << dPtr[i * M + j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+void findRowSum(const double *dPtr, double *sum1, int N, int M) {
+    for (int i = 0; i < N; i++) {
+        double s = 0;
+        for (int j = 0; j < M; j++) {
+            s += dPtr[i * M + j];
+        }
+        sum1[i] = s;
+    }
+}
+
+void findColSum(const double *dPtr, double *sum2, int N, int M) {
+    for (int j = 0; j < M; j++) {
+        double s = 0;
+        for (int i = 0; i < N; i++) {
+            s += dPtr[i * M + j];
+        }
+        sum2[j] = s;
+    }
+}
