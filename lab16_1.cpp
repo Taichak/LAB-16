@@ -35,7 +35,6 @@ int main(){
 
 void randData(double *dPtr, int N, int M) {
     for (int i = 0; i < N * M; i++) {
-        // Random value between 0.00 and 1.00
         dPtr[i] = (rand() % 101) / 100.0;
     }
 }
@@ -44,7 +43,6 @@ void showData(double *dPtr, int N, int M) {
     cout << fixed << setprecision(2);
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
-            // Accessing the 2D array using pointer arithmetic
             cout << dPtr[i * M + j] << " ";
         }
         cout << "\n";
